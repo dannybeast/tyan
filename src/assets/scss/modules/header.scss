@@ -1,0 +1,55 @@
+.header {
+ border-bottom: 2px solid #e9f0f7;
+ .nav-button {
+  display: none;
+  background: transparent;
+  margin-left: 15px;
+  @include lg-block() {
+   display: flex;
+  }
+ }
+ .contact-phone {
+  font-size: 19px;
+ }
+ .contact-email {
+  font-size: 14px;
+ }
+ .contact-item,
+ .btn {
+  margin-left: 35px;
+ }
+ .container {
+  max-width: $large-container-width;
+ }
+ &__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+ }
+ &__nav {
+  margin-right: auto;
+  margin-left: 100px;
+  ul {
+   display: flex;
+   align-items: center;
+  }
+  li {
+   margin: 0 15px;
+  }
+
+  a {
+   font-size: 14px;
+   color: #000;
+   &:hover {
+    color: $primary-color;
+   }
+  }
+ }
+}
+
+.datetime {
+ font-weight: 400;
+ padding-left: 10px;
+ padding-right: 10px;
+}

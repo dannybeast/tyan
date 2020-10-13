@@ -1,0 +1,73 @@
+// colors
+.color-warning {
+ color: $warning-color !important;
+}
+.color-success {
+ color: $success-color;
+}
+
+.color-black {
+ color: #000;
+}
+
+.color-danger {
+ color: $danger-color;
+}
+
+.color-primary {
+ color: $primary-color !important;
+}
+
+.color-gray {
+ color: $gray !important;
+}
+
+.nav-button {
+ * {
+  pointer-events: none;
+ }
+}
+
+.hidden {
+ display: none;
+}
+.hidden-sm {
+ @include sm-block() {
+  display: none !important;
+ }
+}
+
+.hidden-xs {
+ @include xs-block() {
+  display: none;
+ }
+}
+
+.nowrap {
+ white-space: nowrap;
+}
+
+.center {
+ justify-content: center;
+}
+
+.right {
+ justify-content: flex-end;
+}
+
+.between {
+ justify-content: space-between;
+}
+
+.row {
+ $parent: &;
+ @include row-flex();
+ margin-bottom: -15px;
+
+ .col {
+  @include col();
+  @include size(6);
+  @include size-sm(12);
+  margin-bottom: 15px;
+ }
+}

@@ -1,0 +1,208 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Адвокат Людмила Тян';
+  - var description = '';
+  - var pageName = 'index';
+
+
+block content
+  // WEBSITE
+  +b.content
+    +b.SECTION.intro
+      include ../includes/modules/header
+      .container
+        +e.row
+          +e.col
+            +e.P.subtitle Адвокат Людмила Тян
+            +e.H1.title Ведение уголовных и гражданских дел, помощь в решении юридических вопросов. Перепланировка, изменение назначения жилых\нежилых помещений.
+            +b.UL.intro-icons
+              +e.LI
+                +e.icon
+                  +icon('hand')
+                +e.desc
+                  p Уголовные дела 
+              +e.LI
+                +e.icon
+                  +icon('trial')
+                +e.desc
+                  p Гражданские дела (семейные, трудовые споры)
+              +e.LI
+                +e.icon
+                  +icon('folder')
+                +e.desc
+                  p Административные дела, консультации
+            +e.buttons
+              +b.A(class="btn --primary --radius --size-lg js-modal" data-modal="consult") Заполните заявку 
+          +e.col
+            +b.form-module
+              +e.FORM(class=" js-consult-form")
+                +b.H5.title Получить консультацию <span class="color-primary">адвоката</span>
+                +b.field
+                  textarea(placeholder="Ваш вопрос" name="question")
+                +b.field
+                  input(type="text" name="name" placeholder="Ваше имя")
+                +b.field
+                  input(type="text" name="phone" placeholder="Номер телефона *").js-phone-mask
+
+                +b.consult-module
+                  p Либо позвоните по телефону
+                  +e.A(href="tel:79892766934") 
+                    +icon('phone')
+                    span +7 (989) 276-69-34
+                +e.footer
+                  +b.BUTTON.btn(class="--line-black --radius --size-lg")
+                    span Отправить вопрос
+                    +icon('arrow')
+
+    +b.SECTION.about
+      .container
+        +e.block
+          +e.row
+            +e.preview-text
+              .typography
+                p <strong>Адвокат Тян Людмила Деннамовна</strong> является действующим адвокатом и членом Адвокатской палаты Краснодарского края, регистрационный номер <strong>23\6332</strong> в реестре адвокатов Краснодарского края.
+            +e.preview-image
+              +b.UL.medals
+                +e.LI
+                  img(src="assets/images/medals/1.png", alt="")
+                +e.LI
+                  img(src="assets/images/medals/2.png", alt="")
+
+            +e.image
+              img(src="assets/images/about/tyan.png", alt="")
+            +e.content
+              +b.H2.title(class="--after") <span class="color-primary">Об адвокате</span> Тян Людмиле Деннамовне
+              .typography
+                p Адвокат Тян Людмила Деннамовна является выпускницей юридического факультета Кубанского государственного университета. Более 22 лет проработала в органах прокуратуры Российской Федерации. В 2018 году присвоено почетное звание «Заслуженный юрист Республики Адыгея». В 2016 году награждена знаком отличия «За верность закону» 2 степени.
+              +b.UL.about-icons
+                +e.LI
+                  +e.icon(class="--primary")
+                    img(src="assets/images/about/ico.png", alt="")
+                  +e.content
+                    p Заслуженный юрист <strong>Республики Адыгея</strong>
+                +e.LI
+                  +e.icon
+                    +icon('balance')
+                  +e.content
+                    p Знак отличия <strong>«За верность закону» </strong>
+    +b.SECTION.directions(class="--eagle")
+      .container
+        +b.H2.title(class="--after") Основные<br> направления деятельности
+        .swiper-container.swiper-no-swiping.js-swiper-directions
+          .swiper-wrapper
+            .swiper-slide
+              +b.directions-item
+                +e.content-wrapper
+                  +e.content
+                    +e.P.count I
+                    +e.H5.title Гражданские дела
+                    .typography
+                      p В том числе правовая помощь в разрешении спорных вопросов о наследстве, опеке, имуществе, бракоразводные процессы, взыскание алиментов, трудовые споры. При недостижении согласия между сторонами в досудебном порядке – составление исков в суд, представительство доверителя в суде
+                    +e.footer
+                      +b.A(class="btn --white --radius js-modal" data-modal="service") Обратиться за услугой 
+            .swiper-slide
+              +b.directions-item
+                +e.content-wrapper
+                  +e.content
+                    +e.P.count II
+                    +e.H5.title Уголовные дела
+                    .typography
+                      p Защита интересов доверителя, в том числе от уголовного преследования, до возбуждения уголовного дела, на стадии предварительного расследования, судебного разбирательства. Оказание правовой помощи потерпевшим в справедливом возмещении ущерба от преступления.
+                      p Консультации и сбор  документов на условно-досрочное освобождение, замены лишения свободы на более мягкий вид наказания. Правовое и процессуальное сопровождение в суде процедуры условно-досрочного освобождения, замены наказания.
+                    +e.footer
+                      +b.A(class="btn --white --radius js-modal" data-modal="service") Обратиться за услугой
+            .swiper-slide
+              +b.directions-item
+                +e.content-wrapper
+                  +e.content
+                    +e.P.count III
+                    +e.H5.title Административные<br> дела
+                    .typography
+                      p Отстаивание прав и интересов клиента в производстве по делу об административном правонарушении. Обжалование постановления по делу об административном правонарушении.
+                    +e.footer
+                      +b.A(class="btn --white --radius js-modal" data-modal="service") Обратиться за услугой
+            .swiper-slide
+              +b.directions-item
+                +e.content-wrapper
+                  +e.content
+                    +e.P.count IV
+                    +e.H5.title Иные правовые консультации и составление правовых документов
+                    .typography
+                      p Оказание правовой помощи в составлении заявлений, жалоб, ходатайств и других правовых документов в органы власти, суд, органы прокуратуры, правоохранительные органы.
+                    +e.footer
+                      +b.A(class="btn --white --radius js-modal" data-modal="service") Обратиться за услугой
+            .swiper-slide
+              +b.directions-item.is-active
+                +e.content-wrapper
+                  +e.content
+                    +e.P.count V
+                    +e.H5.title Перепланировка, изменение назначения жилых\нежилых помещений
+                    .typography
+                      p Помощь клиенту по подготовке технических и проектных документов на объект. Согласование и  помощь в получении заключение органов власти. Полное правовое сопровождение процедуры
+                    +e.footer
+                      +b.A(class="btn --white --radius js-modal" data-modal="service") Обратиться за услугой
+
+
+    +b.SECTION.advantages
+      .container
+        +b.H2.title(class="--after") Преимущества работы <span class="color-primary">с адвокатом</span>
+
+        .swiper-container.swiper-no-swiping.js-swiper-advantages
+          .swiper-wrapper
+            .swiper-slide
+              +b.advantage-item
+                +e.icon
+                  +icon('chat')
+                +e.P.title Бесплатные консультации
+                +e.desc
+                  p Консультация для вас абсолютно бесплатна
+            .swiper-slide
+              +b.advantage-item
+                +e.icon
+                  +icon('timer')
+                +e.P.title Оперативное решение
+                +e.desc
+                  p Заполните форму, и уже через 10-15 минут с вами свяжется юрист
+            .swiper-slide
+              +b.advantage-item
+                +e.icon
+                  +icon('diplom')
+                +e.P.title Высокая квалификация
+                +e.desc
+                  p Знания законодательной базы и богатая судебная практика
+            .swiper-slide
+              +b.advantage-item
+                +e.icon
+                  +icon('guarantee')
+                +e.P.title Гарантия тайны
+                +e.desc
+                  p Гарантия тайны любых сведений, полученных в связи с оказанием правовой помощи
+
+        +e.footer
+          +e.footer-content
+            .typography
+              p Чтобы задать вопрос адвокату онлайн, вам потребуется всего несколько минут. Заполните специальную форму
+          +e.footer-buttons
+            +b.A(class="btn --primary --radius --size-lg js-modal" data-modal="consult") Задать вопрос он-лайн
+    +b.SECTION.contacts
+      .container
+        +e.map.map(data-address="г. Краснодар, ул. Старокубанская, 32")
+          +e.content
+            +e.A(href="tel:79892766934" class="phone") 
+              +e.icon
+                +icon('phone')
+              span +7 (989) 276-69-34
+            +e.P.item
+              +e.icon
+                +icon('time')
+              span Ежедневно с 08-00 до 20-00
+            +e.P.item
+              +e.icon
+                +icon('location')
+              span 350011, г. Краснодар, ул. Старокубанская, 32
+
+    include ../includes/modules/footer
+
+block script
+  script(src="assets/js/app.js")

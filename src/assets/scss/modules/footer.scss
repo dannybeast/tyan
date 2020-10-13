@@ -1,0 +1,28 @@
+.footer {
+ position: relative;
+ &__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $section-space;
+ }
+ .container {
+  max-width: $large-container-width;
+ }
+ .contact-phone {
+  margin-left: auto;
+ }
+ .contact-email {
+  margin-left: 140px;
+ }
+ .logo {
+  opacity: 0.4;
+  &__name {
+   font-size: 28px;
+  }
+  &__tooltip {
+   color: #000;
+   font-size: 16px;
+  }
+ }
+}

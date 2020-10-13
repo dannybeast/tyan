@@ -1,0 +1,25 @@
+#consult.modal
+  +b.modal-inner
+    +e.close.js-close-modal
+      +icon('cross')
+    +b.modal-header(class="--border-bottom")
+      +b.H3.modal-title
+        span Получить консультацию <span class="color-primary">адвоката</span>
+    +b.FORM.js-consult-form
+      .modal-content
+        +b.field
+          textarea(placeholder="Ваш вопрос" name="question")
+        +b.field
+          input(type="text" name="name" placeholder="Ваше имя")
+        +b.field
+          input(type="text" name="phone" placeholder="Номер телефона *").js-phone-mask
+
+        +b.consult-module
+          p Либо позвоните по телефону
+          +e.A(href="tel:79892766934") 
+            +icon('phone')
+            span +7 (989) 276-69-34
+        .form-module__footer
+          +b.BUTTON.btn(class="--primary --radius --size-lg")
+            span Отправить вопрос
+            +icon('arrow')
