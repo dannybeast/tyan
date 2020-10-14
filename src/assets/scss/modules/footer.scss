@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: $section-space;
-  @include lg-block() {
+  @include notebook-block() {
    margin-bottom: 80px;
   }
   @include md-block() {

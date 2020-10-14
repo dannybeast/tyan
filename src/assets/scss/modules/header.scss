@@ -17,12 +17,10 @@
  .contact-item,
  .datetime {
   margin-left: 35px;
-  @include to(1360px) {
-   margin-left: 20px;
-  }
-  @include md-block() {
+  @include notebook-block() {
    margin-left: 15px;
   }
+
   @include sm-block() {
    display: none;
   }
@@ -50,10 +48,10 @@
   }
  }
  .logo {
-  @include to(1315px) {
+  @include notebook-block() {
    font-size: 12px;
   }
-  @include lg-block() {
+  @include md-block() {
    margin-right: auto;
   }
   @include xs-block() {
