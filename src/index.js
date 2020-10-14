@@ -32,15 +32,18 @@ $(document).ready(function() {
   //animations();
   lazyload();
   sliders();
-  let directionsHeights = [];
-  $(".directions-item__content").each(function(){
-    let itemHeight = $(this).height();
-    directionsHeights.push(itemHeight);
-  })
-  let maxHeight = Math.max.apply(null, directionsHeights);
-  $('.directions-item').each(function(){
-    $(this).css('min-height', maxHeight)
-  })
+
+  if($(window).width() > 1024){
+    let directionsHeights = [];
+    $(".directions-item__content").each(function(){
+      let itemHeight = $(this).height();
+      directionsHeights.push(itemHeight);
+    })
+    let maxHeight = Math.max.apply(null, directionsHeights);
+    $('.directions-item').each(function(){
+      $(this).css('min-height', maxHeight)
+    })
+  }
 
   //- 
 

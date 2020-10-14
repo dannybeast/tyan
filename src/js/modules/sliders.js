@@ -6,37 +6,37 @@ export default function() {
     spaceBetween: 30,
     noSwiping: true,
     breakpoints: {
+   
       0: {
-        slidesPerView: 1.2,
+        slidesPerView: 'auto',  
+        spaceBetween: 15,
         freeMode: true,
         noSwiping: false,
       },
-      768: {
-        slidesPerView: 2.2,
-        freeMode: true,
-        noSwiping: false,
-      },
-      992: {
+      1025: {
         slidesPerView: 4,
       },
     },
   });
 
-  var swiperApple = new Swiper(".js-swiper-apple", {
+  var swiperApple = new Swiper(".js-swiper-directions", {
     loop: false,
-    spaceBetween: 0,
-    navigation: {
-      nextEl: ".apple-slider .swiper-next",
-      prevEl: ".apple-slider .swiper-prev",
-    },
-    pagination: {
-      el: ".apple-slider .slider-dots",
-      clickable: true,
-      dynamicBullets: true,
-    },
+    slidesPerView: 'auto',
+    noSwiping: true,
     breakpoints: {
-      992: {
-        slidesPerView: 1,
+      0: {
+        freeMode: true,  
+        spaceBetween: 15,
+        noSwiping: false,
+      },
+      768: {
+        freeMode: true,
+        spaceBetween: 30,
+        noSwiping: false,
+      },
+      1025: {
+        freeMode: false,
+        noSwiping: true,
       },
     },
   });

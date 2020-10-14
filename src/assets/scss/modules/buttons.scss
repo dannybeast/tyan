@@ -12,6 +12,7 @@
  position: relative;
  $i-size: 16px;
  border-radius: 35px;
+ white-space: nowrap;
  $parent: &;
  span {
   line-height: 1;
@@ -81,6 +82,14 @@
   letter-spacing: 0.5px;
   padding: 0 35px;
   height: 64px;
+  @include md-block() {
+   height: 50px;
+   padding: 0 30px;
+   font-size: 20px;
+  }
+  @include xs-block() {
+   font-size: 16px;
+  }
   svg,
   img {
    width: 24px;

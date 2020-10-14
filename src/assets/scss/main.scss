@@ -94,6 +94,15 @@ section,
  position: relative;
  display: block;
  margin-bottom: $section-space;
+ @include lg-block() {
+  margin-bottom: 80px;
+ }
+ @include md-block() {
+  margin-bottom: 60px;
+ }
+ @include sm-block() {
+  margin-bottom: 40px;
+ }
 }
 
 .wrapper {
@@ -118,10 +127,21 @@ section,
    height: 4px;
    margin: 30px 0 40px;
    background: $primary-color;
+   @include sm-block() {
+    width: 30px;
+    height: 3px;
+    margin: 20px 0 30px;
+   }
   }
  }
+ @include lg-block() {
+  font-size: 36px;
+ }
+ @include md-block() {
+  font-size: 30px;
+ }
  @include sm-block() {
-  font-size: 28px;
+  font-size: 24px;
  }
 }
 
@@ -140,11 +160,11 @@ section,
  visibility: hidden;
  transform: translateY(-60px);
  transition: all 0.2s ease;
- top: 120px;
- height: calc(100% - 120px);
+ top: 100px;
+ height: calc(100% - 100px);
  @include sm-block() {
-  top: 90px;
-  height: calc(100% - 90px);
+  top: 80px;
+  height: calc(100% - 80px);
  }
  .header__buttons {
   display: none;
@@ -225,18 +245,19 @@ section,
 .logo {
  display: flex;
  align-items: center;
+ font-size: 16px;
  &__tooltip {
   background: $gray;
-  font-size: 19px;
+  font-size: em(19px, 16px);
   text-transform: uppercase;
   font-weight: 700;
   flex-shrink: 0;
   line-height: 1;
-  padding: 12px 19px;
-  border-radius: 10px;
+  padding: em(12px, 16px) em(19px, 16px);
+  border-radius: em(10px, 16px);
   position: relative;
   letter-spacing: 0.87px;
-  margin-right: 20px;
+  margin-right: em(20px, 16px);
   color: $primary-color;
   &:after {
    content: "";
@@ -255,7 +276,7 @@ section,
   font-weight: 700;
   white-space: nowrap;
   color: #000;
-  font-size: 34px;
+  font-size: em(34px, 16px);
  }
 }
 
@@ -322,8 +343,17 @@ section,
 
 .intro-icons {
  @include row-flex();
+ @include sm-block() {
+  margin-left: -5px;
+  margin-right: -5px;
+ }
  &__desc {
   max-width: 160px;
+  @include sm-block() {
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 12px;
+  }
  }
  &__icon {
   border: 2px solid #e4ebed;
@@ -335,22 +365,37 @@ section,
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
+  @include sm-block() {
+   width: 70px;
+   height: 70px;
+  }
   svg {
    width: 40px;
    height: 40px;
    fill: $primary-color;
+   @include sm-block() {
+    width: 30px;
+    height: 30px;
+   }
   }
  }
  li {
   @include col();
   @include size(4);
-  @include size-sm(12);
+  @include sm-block() {
+   margin-left: 5px;
+   margin-right: 5px;
+   width: calc(33.3333% - 10px);
+  }
  }
 }
 
 .consult-module {
  text-align: center;
  font-size: 21px;
+ @include sm-block() {
+  font-size: 18px;
+ }
  p {
   color: rgba(#000, 0.5);
   margin-bottom: 5px;
@@ -377,29 +422,83 @@ section,
  }
  &__row {
   @include row-flex();
-  padding-top: 85px;
+  padding-top: 80px;
   padding-bottom: 80px;
+  @include md-block() {
+   padding-top: 60px;
+   padding-bottom: 60px;
+  }
+  @include sm-block() {
+   padding-top: 40px;
+   padding-bottom: 40px;
+  }
+  @include xs-block() {
+   padding-top: 20px;
+   padding-bottom: 20px;
+  }
  }
  &__col {
   @include col();
   @include size(6);
-  @include size-sm(12);
+  @include size-md(12);
+  &:last-child {
+   @include md-block() {
+    display: none;
+   }
+  }
  }
  .intro-icons {
   margin-bottom: 50px;
   max-width: 715px;
+  @include sm-block() {
+   margin-bottom: 30px;
+   justify-content: center;
+   text-align: center;
+   &__icon {
+    margin-left: auto;
+    margin-right: auto;
+   }
+  }
  }
  &__subtitle {
   font-size: 28px;
   color: $primary-color;
   font-weight: 700;
   margin-bottom: 20px;
+  @include sm-block() {
+   font-size: 20px;
+   text-align: center;
+   margin-bottom: 15px;
+  }
+  @include xs-block() {
+   font-size: 16px;
+  }
+ }
+ &__buttons {
+  display: flex;
+  @include sm-block() {
+   justify-content: center;
+  }
  }
  &__title {
   font-size: 39px;
   margin-bottom: 50px;
   font-weight: 400;
   max-width: 650px;
+  @include xl-block() {
+   font-size: 36px;
+  }
+  @include lg-block() {
+   font-size: 30px;
+  }
+  @include sm-block() {
+   font-size: 24px;
+   margin-bottom: 30px;
+   text-align: center;
+  }
+  @include xs-block() {
+   font-size: 20px;
+  }
  }
  .form-module {
   margin-left: auto;
@@ -411,6 +510,26 @@ section,
   height: 870px;
   background: #ddd;
   position: relative;
+  @include lg-block() {
+   height: 600px;
+  }
+  @include sm-block() {
+   height: auto;
+  }
+ }
+ .map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  @include sm-block() {
+   height: 350px;
+   position: relative;
+   margin-left: -15px;
+   margin-right: -15px;
+  }
  }
  &__phone {
   color: #fff;
@@ -420,6 +539,10 @@ section,
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  @include sm-block() {
+   font-size: 18px;
+   margin-bottom: 15px;
+  }
   &:last-child {
    margin-bottom: 0;
   }
@@ -428,6 +551,9 @@ section,
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  @include sm-block() {
+   margin-bottom: 15px;
+  }
   &:last-child {
    margin-bottom: 0;
   }
@@ -446,10 +572,19 @@ section,
   align-items: center;
   justify-content: center;
   margin-right: 30px;
+  @include sm-block() {
+   width: 30px;
+   height: 30px;
+   margin-right: 15px;
+  }
   svg {
    fill: #000;
    width: 34px;
    height: 44px;
+   @include sm-block() {
+    width: 25px;
+    height: 30px;
+   }
   }
  }
  &__content {
@@ -463,15 +598,35 @@ section,
   width: 460px;
   transform: translateY(-50%);
   padding: 60px 50px;
-  &:before {
+  @include sm-block() {
+   font-size: 16px;
+  }
+  &:before,
+  &:after {
    content: "";
    width: 9999px;
    height: 100%;
    position: absolute;
    background: inherit;
    top: 0;
-   right: 100%;
    bottom: 0;
+  }
+  &:before {
+   right: 100%;
+  }
+  &:after {
+   left: 100%;
+   display: none;
+   @include sm-block() {
+    display: block;
+   }
+  }
+  @include sm-block() {
+   position: relative;
+   top: initial;
+   transform: none;
+   width: 100%;
+   padding: 30px 0;
   }
  }
  .container {
@@ -482,16 +637,27 @@ section,
 .advantage-item {
  border: solid 2px $border-base;
  padding: 70px 40px 26px 44px;
+ @include sm-block() {
+  padding: 40px 30px 20px;
+ }
  &__title {
   font-weight: 700;
   font-size: 23px;
   margin-bottom: 20px;
   max-width: 100px;
+  @include sm-block() {
+   font-size: 18px;
+   margin-bottom: 15px;
+  }
  }
  &__desc {
   font-size: 16px;
   max-width: 200px;
   line-height: 1.6;
+  @include sm-block() {
+   max-width: 100%;
+   font-size: 14px;
+  }
  }
  &__icon {
   width: 80px;
@@ -500,6 +666,9 @@ section,
   align-items: center;
   justify-content: center;
   margin-bottom: 54px;
+  @include sm-block() {
+   margin-bottom: 30px;
+  }
   svg {
    width: 80px;
    height: 80px;
@@ -515,15 +684,62 @@ section,
  .advantage-item {
   height: 100%;
  }
-
+ .swiper-container {
+  @include lg-block() {
+   margin-left: -30px;
+   margin-right: -30px;
+  }
+  @include sm-block() {
+   margin-left: -15px;
+   margin-right: -15px;
+  }
+ }
+ .swiper-wrapper {
+  @include lg-block() {
+   padding-left: 30px;
+   padding-right: 30px;
+  }
+  @include sm-block() {
+   padding-left: 15px;
+   padding-right: 15px;
+  }
+ }
+ .swiper-slide {
+  @include lg-block() {
+   width: 28%;
+  }
+  @include md-block() {
+   width: 38%;
+  }
+  @include sm-block() {
+   width: 60%;
+  }
+  @include xs-block() {
+   width: 65%;
+  }
+ }
  .title {
   max-width: 400px;
+  @include sm-block() {
+   text-align: center;
+  }
+  span {
+   display: block;
+  }
+  &:after {
+   @include sm-block() {
+    margin-left: auto;
+    margin-right: auto;
+   }
+  }
  }
  &__footer {
   align-items: center;
   @include row-flex();
   padding-top: 80px;
-
+  @include sm-block() {
+   padding-top: 30px;
+  }
   &-content {
    @include col();
    @include size(6);
@@ -531,6 +747,15 @@ section,
    .typography {
     font-size: 23px;
     max-width: 570px;
+    @include lg-block() {
+     font-size: 16px;
+    }
+    @include sm-block() {
+     text-align: center;
+     max-width: 100%;
+     width: 100%;
+     margin-bottom: 25px;
+    }
    }
   }
   &-buttons {
@@ -539,6 +764,9 @@ section,
    @include size-sm(12);
    display: flex;
    justify-content: flex-end;
+   @include sm-block() {
+    justify-content: center;
+   }
   }
  }
 }
@@ -553,9 +781,25 @@ section,
   background: #fff;
   padding: 40px 40px 30px;
   min-height: 100%;
+  @include lg-block() {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+  }
+  @include sm-block() {
+   padding: 30px;
+  }
   &-wrapper {
    height: 100%;
    position: relative;
+  }
+ }
+ .typography {
+  @include xxl-block() {
+   font-size: 14px;
+  }
+  @include lg-block() {
+   margin-bottom: 30px;
   }
  }
  &__count {
@@ -570,14 +814,22 @@ section,
   font-weight: 700;
   text-align: left;
   margin-bottom: 10px;
+  @include xxl-block() {
+   font-size: 18px;
+  }
  }
  &__footer {
   margin-top: 30px;
   display: none;
+  @include lg-block() {
+   display: block;
+   margin-top: auto;
+  }
   .btn {
    font-weight: 700;
    padding: 13px 24px;
    font-size: 16px;
+   border: solid 1px $border-base;
   }
  }
  &.is-active {
@@ -588,6 +840,9 @@ section,
   }
   #{$parent}__footer {
    display: block;
+   .btn {
+    border-color: #fff;
+   }
   }
  }
 }
@@ -597,6 +852,14 @@ section,
  background-size: cover;
  padding-top: 80px;
  padding-bottom: 40px;
+ @include lg-block() {
+  padding-top: 60px;
+  padding-bottom: 40px;
+ }
+ @include sm-block() {
+  padding-top: 30px;
+  padding-bottom: 30px;
+ }
  &--eagle {
   .container {
    position: relative;
@@ -622,6 +885,12 @@ section,
    margin-left: auto;
    margin-right: auto;
    margin-bottom: 70px;
+   @include lg-block() {
+    margin-bottom: 40px;
+   }
+   @include sm-block() {
+    margin-bottom: 30px;
+   }
   }
  }
  .directions-item {
@@ -634,6 +903,11 @@ section,
  .swiper-wrapper {
   flex-wrap: wrap;
   @include u-row-flex(50px);
+  @include lg-block() {
+   flex-wrap: nowrap;
+   margin-left: 0;
+   margin-right: 0;
+  }
  }
 
  .swiper-slide {
@@ -641,9 +915,37 @@ section,
   margin-bottom: 50px;
   @include u-col(50px);
   @include u-size(4, 12, 50px);
-
+  @include lg-block() {
+   width: 35%;
+   margin-left: 0;
+   margin-right: 0;
+   margin-bottom: 0;
+  }
+  @include md-block() {
+   width: 45%;
+  }
+  @include sm-block() {
+   width: calc(100% - 60px);
+  }
+  @include xs-block() {
+   width: calc(100% - 30px);
+  }
   &:nth-child(2) {
    @include u-size(8, 12, 50px);
+   @include lg-block() {
+    width: 55%;
+    margin-left: 0;
+    margin-right: 0;
+   }
+   @include md-block() {
+    width: 75%;
+   }
+   @include sm-block() {
+    width: calc(150% - 60px);
+   }
+   @include xs-block() {
+    width: calc(180% - 60px);
+   }
   }
  }
 }
@@ -652,11 +954,13 @@ section,
  display: flex;
  justify-content: flex-end;
  align-items: flex-start;
- margin-top: -18px;
 }
 .about-icons {
  @include row-flex();
  font-size: 18px;
+ @include sm-block() {
+  font-size: 16px;
+ }
  &__icon {
   margin-right: 20px;
   flex-shrink: 0;
@@ -667,16 +971,30 @@ section,
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  @include sm-block() {
+   width: 60px;
+   height: 60px;
+   margin-right: 15px;
+  }
   &--primary {
    background: $primary-color;
    svg {
     fill: #fff;
    }
   }
+  img {
+   @include sm-block() {
+    width: 36px;
+   }
+  }
   svg {
    width: 44px;
    height: 44px;
    fill: #6e6f73;
+   @include sm-block() {
+    width: 28px;
+    height: 28px;
+   }
   }
  }
  strong {
@@ -685,9 +1003,15 @@ section,
  li {
   @include col();
   @include size(6);
-  @include size-sm(12);
+  @include size-xxl(12);
   display: flex;
   align-items: center;
+  @include xxl-block() {
+   margin-bottom: 15px;
+   &:last-child {
+    margin-bottom: 0;
+   }
+  }
  }
 }
 
@@ -695,10 +1019,36 @@ section,
  .container {
   max-width: $large-container-width;
  }
+ .medals {
+  margin-top: -18px;
+  @include md-block() {
+   margin-top: 0;
+  }
+  @include sm-block() {
+   margin-left: auto;
+   justify-content: center;
+   margin-right: auto;
+  }
+ }
  &__block {
   border: solid 3px $border-base;
   padding: 70px 120px;
   position: relative;
+  @include notebook-block() {
+   padding: 60px 80px;
+  }
+  @include lg-block() {
+   padding: 60px 40px 30px;
+  }
+  @include md-block() {
+   padding: 30px 40px;
+  }
+  @include sm-block() {
+   padding: 30px 30px;
+  }
+  @include xs-block() {
+   padding: 20px;
+  }
   &:after {
    content: "";
    width: calc(100% - 120px);
@@ -718,42 +1068,97 @@ section,
   @include col();
   @include size(8);
   @include size-sm(12);
+  margin-bottom: 40px;
+  @include xxl-block() {
+   margin-bottom: 60px;
+  }
+  @include sm-block() {
+   margin-bottom: 30px;
+  }
   .typography {
    max-width: 800px;
    font-size: 22px;
+   @include md-block() {
+    font-size: 16px;
+   }
+   @include sm-block() {
+    text-align: justify;
+    font-size: 14px;
+   }
   }
  }
  &__preview-image {
   @include col();
   @include size(4);
   @include size-sm(12);
+  @include sm-block() {
+   margin: 0 auto 30px;
+  }
+  img {
+   width: 100%;
+  }
  }
  &__content {
   @include col();
   @include size(6);
+  @include size-notebook(7);
   @include size-sm(12);
   margin-left: auto;
   display: flex;
   flex-direction: column;
+  @include notebook-block() {
+   padding-left: 40px;
+  }
+  @include md-block() {
+   padding-left: 0;
+  }
   .typography {
    font-size: 18px;
    max-width: 670px;
    text-align: justify;
    margin-bottom: 70px;
+   @include xxl-block() {
+    margin-bottom: 30px;
+   }
+   @include lg-block() {
+    font-size: 16px;
+   }
+   @include sm-block() {
+    font-size: 14px;
+   }
    &:last-child {
     margin-bottom: 0;
    }
   }
   .title {
    margin-top: auto;
+   @include sm-block() {
+    text-align: center;
+    &:after {
+     margin-left: auto;
+     margin-right: auto;
+    }
+   }
    span {
     display: block;
+    @include to(1300px) {
+     display: inline;
+    }
+    @include md-block() {
+     display: block;
+    }
    }
   }
  }
  &__image {
+  @include size-notebook(5);
+  @include size-sm(12);
+  @include sm-block() {
+   margin: 0 auto 30px;
+  }
   img {
    display: block;
+   width: 100%;
    box-shadow: -4px 0 93px 16px rgba(0, 0, 0, 0.05);
   }
  }

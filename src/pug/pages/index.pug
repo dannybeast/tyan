@@ -187,7 +187,8 @@ block content
             +b.A(class="btn --primary --radius --size-lg js-modal" data-modal="consult") Задать вопрос он-лайн
     +b.SECTION.contacts
       .container
-        +e.map.map(data-address="г. Краснодар, ул. Старокубанская, 32")
+        +e.map
+          
           +e.content
             +e.A(href="tel:79892766934" class="phone") 
               +e.icon
@@ -201,7 +202,7 @@ block content
               +e.icon
                 +icon('location')
               span 350011, г. Краснодар, ул. Старокубанская, 32
-
+          .map(data-address="г. Краснодар, ул. Старокубанская, 32")
     include ../includes/modules/footer
 
 block script

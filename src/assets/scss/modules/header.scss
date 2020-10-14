@@ -15,8 +15,27 @@
   font-size: 14px;
  }
  .contact-item,
- .btn {
+ .datetime {
   margin-left: 35px;
+  @include to(1360px) {
+   margin-left: 20px;
+  }
+  @include md-block() {
+   margin-left: 15px;
+  }
+  @include sm-block() {
+   display: none;
+  }
+ }
+ .btn {
+  @include sm-block() {
+   display: none;
+  }
+ }
+ .datetime {
+  @include to(1250px) {
+   display: none;
+  }
  }
  .container {
   max-width: $large-container-width;
@@ -26,10 +45,31 @@
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  @include sm-block() {
+   height: 80px;
+  }
+ }
+ .logo {
+  @include to(1315px) {
+   font-size: 12px;
+  }
+  @include lg-block() {
+   margin-right: auto;
+  }
+  @include xs-block() {
+   font-size: 10px;
+  }
  }
  &__nav {
   margin-right: auto;
   margin-left: 100px;
+
+  @include to(1480px) {
+   margin-left: auto;
+  }
+  @include lg-block() {
+   display: none;
+  }
   ul {
    display: flex;
    align-items: center;

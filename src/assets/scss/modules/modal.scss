@@ -108,9 +108,6 @@ $ease: ease;
 }
 
 .modal {
- .btn {
-  font-size: 22px;
- }
  @include transition(all $ease 0.01s);
  display: flex;
  align-items: center;
